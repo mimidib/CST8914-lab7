@@ -192,6 +192,10 @@ article p {
 .pull-right {
   float: right;
 }
+/* optional styling so input search is hte same height as search icon button*/
+.search-form{
+  display: flex;
+}
 
   </style>
 </head>
@@ -210,18 +214,17 @@ article p {
         <!-- removed tab index -1 -->
         <a href="#">Entertainment</a>
         <a href="#">Sports</a>
-        <a href="#" class="btn-search pull-right"><img src="https://raw.githubusercontent.com/udacity/ud891/2de2a0688c68809a3b453db3a24b1a59e8401459/lesson2-focus/02-dom-order/images/search.svg" alt="Search" />Search</a> 
+        <!-- changed search syntax for an accessible form -->
+        <form class="btn-search pull-right search-form">
+          <input type="search" id="site-search" placeholder="Search...">        
+          <button type="submit" href="#" class="btn-search pull-right"><img src="https://raw.githubusercontent.com/udacity/ud891/2de2a0688c68809a3b453db3a24b1a59e8401459/lesson2-focus/02-dom-order/images/search.svg" alt="Search" /></button>
+          
+        </form>
 
       </nav>
     </div>
   </header>
-  <div class="newsletter">
-    <div class="container">
-      <h3>Like the Funion? Consider joining our newsletter!</h3>
-      <input type="text">
-      <button type="button" onfocus="getFocus()">Sign up</button></div>
-      
-    </div>
+  
   </div>
   <main class="container">
     <h2 class="offscreen">Top story</h2>
@@ -240,7 +243,8 @@ article p {
     <div class="side-by-side">
       <div class="column">
         <div class="tier-header">
-          <h2 tabindex="0">In the news</h2>
+          <!-- removed tabindex focus as it is not an interractive element -->
+          <h2>In the news</h2>
         </div>
         <article>
           <h3 class="headline">Bee wonders if maybe everyone else is a drone and he's the only one who has it "figured out."</h3>
@@ -287,10 +291,19 @@ article p {
     </div>
     
   </main>
-  <!--   stuff can be added here :)
+  <!--   stuff can be added here :) 
+     added footer input form and button as per best coding practices for flow -->
   <footer>
+    <div class="newsletter">
+    <div class="container">
+      <h3>Like the Funion? Consider joining our newsletter!</h3>
+      <input type="text" placeholder="email address">
+      <!-- remove getFocus() so user can traverse beyond the button, submitting not with Tab but instead with enter or space as expected -->
+      <button type="button" >Sign up</button></div>
+      
+    </div>
   </footer>
-  -->
+
   
   <script>
     function getFocus() {
