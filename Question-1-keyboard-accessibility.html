@@ -216,6 +216,7 @@ article p {
         <a href="#">Sports</a>
         <!-- changed search syntax for an accessible form -->
         <form class="btn-search pull-right search-form">
+          <label for="site-search">Search Site</label>
           <input type="search" id="site-search" placeholder="Search...">        
           <button type="submit" href="#" class="btn-search pull-right"><img src="https://raw.githubusercontent.com/udacity/ud891/2de2a0688c68809a3b453db3a24b1a59e8401459/lesson2-focus/02-dom-order/images/search.svg" alt="Search" /></button>
           
@@ -248,7 +249,8 @@ article p {
         </div>
         <article>
           <h3 class="headline">Bee wonders if maybe everyone else is a drone and he's the only one who has it "figured out."</h3>
-          <p><a href="#" tabindex="1"><b>Read More</b></a></p>
+          <!-- removed tabindex 0> as it was ruining focus order -->
+          <p><a href="#"><b>Read More</b></a></p>
           <img src="https://github.com/udacity/ud891/blob/gh-pages/lesson2-focus/02-dom-order/images/bee.jpg?raw=true" alt="A bee on top of a flower" />
         </article>
       </div>
@@ -296,10 +298,15 @@ article p {
   <footer>
     <div class="newsletter">
     <div class="container">
+      <form>
+      <!-- added form and form label -->
       <h3>Like the Funion? Consider joining our newsletter!</h3>
-      <input type="text" placeholder="email address">
+      <label for="newsletter">Email Address</label>
+      <input id="newsletter" type="text" placeholder="example@email.com">
       <!-- remove getFocus() so user can traverse beyond the button, submitting not with Tab but instead with enter or space as expected -->
-      <button type="button" >Sign up</button></div>
+      <button type="button" >Sign up</button>
+    </form>
+    </div>
       
     </div>
   </footer>
